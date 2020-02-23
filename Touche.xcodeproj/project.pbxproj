@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		6FB66A8B2402856500D42C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB66A8A2402856500D42C1F /* AppDelegate.swift */; };
-		6FB66A8F2402856500D42C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB66A8E2402856500D42C1F /* ViewController.swift */; };
 		6FB66A922402856500D42C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB66A902402856500D42C1F /* Main.storyboard */; };
 		6FB66A942402856900D42C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB66A932402856900D42C1F /* Assets.xcassets */; };
 		6FB66A972402856900D42C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB66A952402856900D42C1F /* LaunchScreen.storyboard */; };
+		6FF8E7E02402E15A00E2C49E /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7D72402E15A00E2C49E /* MapPresenter.swift */; };
+		6FF8E7E12402E15A00E2C49E /* MapWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7D92402E15A00E2C49E /* MapWireFrame.swift */; };
+		6FF8E7E22402E15A00E2C49E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DB2402E15A00E2C49E /* MapView.swift */; };
+		6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DD2402E15A00E2C49E /* MapProtocols.swift */; };
+		6FF8E7E42402E15A00E2C49E /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6FB66A872402856500D42C1F /* Touche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touche.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB66A8A2402856500D42C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6FB66A8E2402856500D42C1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6FB66A912402856500D42C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FB66A932402856900D42C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FB66A962402856900D42C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FB66A982402856900D42C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FF8E7D72402E15A00E2C49E /* MapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		6FF8E7D92402E15A00E2C49E /* MapWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWireFrame.swift; sourceTree = "<group>"; };
+		6FF8E7DB2402E15A00E2C49E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		6FF8E7DD2402E15A00E2C49E /* MapProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapProtocols.swift; sourceTree = "<group>"; };
+		6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,66 @@
 		6FB66A892402856500D42C1F /* Touche */ = {
 			isa = PBXGroup;
 			children = (
+				6FF8E7D52402E15A00E2C49E /* Map */,
 				6FB66A8A2402856500D42C1F /* AppDelegate.swift */,
-				6FB66A8E2402856500D42C1F /* ViewController.swift */,
 				6FB66A902402856500D42C1F /* Main.storyboard */,
 				6FB66A932402856900D42C1F /* Assets.xcassets */,
 				6FB66A952402856900D42C1F /* LaunchScreen.storyboard */,
 				6FB66A982402856900D42C1F /* Info.plist */,
 			);
 			path = Touche;
+			sourceTree = "<group>";
+		};
+		6FF8E7D52402E15A00E2C49E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7D62402E15A00E2C49E /* Presenter */,
+				6FF8E7D82402E15A00E2C49E /* WireFrame */,
+				6FF8E7DA2402E15A00E2C49E /* Views */,
+				6FF8E7DC2402E15A00E2C49E /* Protocols */,
+				6FF8E7DE2402E15A00E2C49E /* Interactor */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		6FF8E7D62402E15A00E2C49E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7D72402E15A00E2C49E /* MapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6FF8E7D82402E15A00E2C49E /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7D92402E15A00E2C49E /* MapWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		6FF8E7DA2402E15A00E2C49E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7DB2402E15A00E2C49E /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6FF8E7DC2402E15A00E2C49E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7DD2402E15A00E2C49E /* MapProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6FF8E7DE2402E15A00E2C49E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FB66A8F2402856500D42C1F /* ViewController.swift in Sources */,
+				6FF8E7E12402E15A00E2C49E /* MapWireFrame.swift in Sources */,
+				6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */,
+				6FF8E7E22402E15A00E2C49E /* MapView.swift in Sources */,
 				6FB66A8B2402856500D42C1F /* AppDelegate.swift in Sources */,
+				6FF8E7E42402E15A00E2C49E /* MapInteractor.swift in Sources */,
+				6FF8E7E02402E15A00E2C49E /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
