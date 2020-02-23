@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Touche requires constant access to your phone&apos;s location to displayed your location on the map and use for setting up geofencing.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Touche requires constant access to your phone&apos;s location to displayed your location on the map and use for setting up geofencing.</string>
 </dict>
 </plist>

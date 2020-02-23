@@ -19,5 +19,7 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
     // MARK: - MapPresenterProtocol
 
     // MARK: - MapInteractorOutputProtocol
-
+    func centerMapAtUserLocation() {
+        view?.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
+    }
 }
