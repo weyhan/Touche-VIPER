@@ -29,13 +29,11 @@ class MapView: UIViewController, MapViewProtocol {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        presenter?.centerMapAtUserLocation()
+        presenter?.centerMapAtUserLocation(on: mapView)
     }
 
-    func centerMapAtUserLocation(latitude: Double, longitude: Double) {
-        guard let coordinate = mapView.userLocation.location?.coordinate else { return }
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: latitude, longitudinalMeters: longitude)
-        mapView.setRegion(region, animated: true)
+    @IBAction func centerMapAtUserLocation(latitude: Double, longitude: Double) {
+        presenter?.centerMapAtUserLocation(on: mapView)
     }
 
     // MARK: - MapViewProtocol

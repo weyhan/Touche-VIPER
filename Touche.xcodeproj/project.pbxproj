@@ -16,6 +16,7 @@
 		6FF8E7E22402E15A00E2C49E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DB2402E15A00E2C49E /* MapView.swift */; };
 		6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DD2402E15A00E2C49E /* MapProtocols.swift */; };
 		6FF8E7E42402E15A00E2C49E /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */; };
+		6FF8E7E7240301D600E2C49E /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF8E7E6240301D600E2C49E /* MapKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6FF8E7DB2402E15A00E2C49E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		6FF8E7DD2402E15A00E2C49E /* MapProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapProtocols.swift; sourceTree = "<group>"; };
 		6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		6FF8E7E6240301D600E2C49E /* MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		6FB66A892402856500D42C1F /* Touche */ = {
 			isa = PBXGroup;
 			children = (
+				6FF8E7E52403015900E2C49E /* Extensions */,
 				6FF8E7D52402E15A00E2C49E /* Map */,
 				6FB66A8A2402856500D42C1F /* AppDelegate.swift */,
 				6FB66A902402856500D42C1F /* Main.storyboard */,
@@ -122,6 +125,14 @@
 				6FF8E7DF2402E15A00E2C49E /* MapInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6FF8E7E52403015900E2C49E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8E7E6240301D600E2C49E /* MapKit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 			files = (
 				6FF8E7E12402E15A00E2C49E /* MapWireFrame.swift in Sources */,
 				6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */,
+				6FF8E7E7240301D600E2C49E /* MapKit.swift in Sources */,
 				6FF8E7E22402E15A00E2C49E /* MapView.swift in Sources */,
 				6FB66A8B2402856500D42C1F /* AppDelegate.swift in Sources */,
 				6FF8E7E42402E15A00E2C49E /* MapInteractor.swift in Sources */,

@@ -28,7 +28,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KY1-iV-tT5"/>
+                    <navigationItem key="navigationItem" id="KY1-iV-tT5">
+                        <barButtonItem key="rightBarButtonItem" title="Center on User" image="Locate" id="y84-HM-7Tl">
+                            <connections>
+                                <action selector="centerMapAtUserLocationWithLatitude:longitude:" destination="BYZ-38-t0r" id="o9k-As-4qe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="6hR-aQ-LqT" id="Xk0-Lv-Fth"/>
                     </connections>
@@ -54,4 +60,7 @@
             <point key="canvasLocation" x="-793" y="138"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Locate" width="15" height="15"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
 
@@ -19,7 +20,8 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
     // MARK: - MapPresenterProtocol
 
     // MARK: - MapInteractorOutputProtocol
-    func centerMapAtUserLocation() {
-        view?.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
+
+    func centerMapAtUserLocation(on mapView: MKMapView) {
+        mapView.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
     }
 }
