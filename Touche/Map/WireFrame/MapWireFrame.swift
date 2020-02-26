@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 public class MapWireFrame: MapWireFrameProtocol {
+
+    // MARK: - Properties
+
+    // MARK: - Factory
 
     class func createMapModule() -> UIViewController {
         let navigationController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MapNavigationController")
@@ -25,6 +30,19 @@ public class MapWireFrame: MapWireFrameProtocol {
         }
 
         return UIViewController()
+    }
+
+    // MARK: - MapWireFrameProtocol
+
+    func presentGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
+        let navigationController = GeofenceWireFrame.createGeofenceModule(region: region)
+
+        if let sourceView = view as? MapView,
+            let geofenceView = navigationController.children.first as? GeofenceView {
+            geofenceView.modalPresentationStyle = .overCurrentContext
+
+            sourceView.present(navigationController, animated: true)
+        }
     }
 
 }

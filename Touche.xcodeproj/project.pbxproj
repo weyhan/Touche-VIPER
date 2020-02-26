@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FA6303B24043E7800308AC3 /* GeofencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303224043E7700308AC3 /* GeofencePresenter.swift */; };
+		6FA6303C24043E7800308AC3 /* GeofenceWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303424043E7700308AC3 /* GeofenceWireFrame.swift */; };
+		6FA6303D24043E7800308AC3 /* GeofenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303624043E7700308AC3 /* GeofenceView.swift */; };
+		6FA6303E24043E7800308AC3 /* GeofenceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303824043E7700308AC3 /* GeofenceProtocols.swift */; };
+		6FA6303F24043E7800308AC3 /* GeofenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303A24043E7700308AC3 /* GeofenceInteractor.swift */; };
+		6FA630412405895500308AC3 /* RadiusTestField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA630402405895500308AC3 /* RadiusTestField.swift */; };
 		6FB66A8B2402856500D42C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB66A8A2402856500D42C1F /* AppDelegate.swift */; };
 		6FB66A922402856500D42C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FB66A902402856500D42C1F /* Main.storyboard */; };
 		6FB66A942402856900D42C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB66A932402856900D42C1F /* Assets.xcassets */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FA6303224043E7700308AC3 /* GeofencePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencePresenter.swift; sourceTree = "<group>"; };
+		6FA6303424043E7700308AC3 /* GeofenceWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceWireFrame.swift; sourceTree = "<group>"; };
+		6FA6303624043E7700308AC3 /* GeofenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceView.swift; sourceTree = "<group>"; };
+		6FA6303824043E7700308AC3 /* GeofenceProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceProtocols.swift; sourceTree = "<group>"; };
+		6FA6303A24043E7700308AC3 /* GeofenceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceInteractor.swift; sourceTree = "<group>"; };
+		6FA630402405895500308AC3 /* RadiusTestField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusTestField.swift; sourceTree = "<group>"; };
 		6FB66A872402856500D42C1F /* Touche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touche.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB66A8A2402856500D42C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FB66A912402856500D42C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +57,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FA6303024043E7700308AC3 /* Geofence */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303124043E7700308AC3 /* Presenter */,
+				6FA6303324043E7700308AC3 /* WireFrame */,
+				6FA6303524043E7700308AC3 /* Views */,
+				6FA6303724043E7700308AC3 /* Protocols */,
+				6FA6303924043E7700308AC3 /* Interactor */,
+			);
+			path = Geofence;
+			sourceTree = "<group>";
+		};
+		6FA6303124043E7700308AC3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303224043E7700308AC3 /* GeofencePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6FA6303324043E7700308AC3 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303424043E7700308AC3 /* GeofenceWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		6FA6303524043E7700308AC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303624043E7700308AC3 /* GeofenceView.swift */,
+				6FA630402405895500308AC3 /* RadiusTestField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6FA6303724043E7700308AC3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303824043E7700308AC3 /* GeofenceProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6FA6303924043E7700308AC3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6FA6303A24043E7700308AC3 /* GeofenceInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		6FB66A7E2402856500D42C1F = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				6FF8E7E52403015900E2C49E /* Extensions */,
+				6FA6303024043E7700308AC3 /* Geofence */,
 				6FF8E7D52402E15A00E2C49E /* Map */,
 				6FB66A8A2402856500D42C1F /* AppDelegate.swift */,
 				6FB66A902402856500D42C1F /* Main.storyboard */,
@@ -206,12 +272,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA630412405895500308AC3 /* RadiusTestField.swift in Sources */,
 				6FF8E7E12402E15A00E2C49E /* MapWireFrame.swift in Sources */,
 				6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */,
+				6FA6303F24043E7800308AC3 /* GeofenceInteractor.swift in Sources */,
 				6FF8E7E7240301D600E2C49E /* MapKit.swift in Sources */,
 				6FF8E7E22402E15A00E2C49E /* MapView.swift in Sources */,
+				6FA6303D24043E7800308AC3 /* GeofenceView.swift in Sources */,
 				6FB66A8B2402856500D42C1F /* AppDelegate.swift in Sources */,
 				6FF8E7E42402E15A00E2C49E /* MapInteractor.swift in Sources */,
+				6FA6303C24043E7800308AC3 /* GeofenceWireFrame.swift in Sources */,
+				6FA6303B24043E7800308AC3 /* GeofencePresenter.swift in Sources */,
+				6FA6303E24043E7800308AC3 /* GeofenceProtocols.swift in Sources */,
 				6FF8E7E02402E15A00E2C49E /* MapPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

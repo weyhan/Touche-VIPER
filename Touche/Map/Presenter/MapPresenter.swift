@@ -24,4 +24,8 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
     func centerMapAtUserLocation(on mapView: MKMapView) {
         mapView.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
     }
+
+    func showGeofence(region: MKCoordinateRegion) {
+        wireFrame?.presentGeofenceScreen(from: view!, region: region)
+    }
 }

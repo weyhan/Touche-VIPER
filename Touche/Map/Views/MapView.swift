@@ -36,5 +36,10 @@ class MapView: UIViewController, MapViewProtocol {
         presenter?.centerMapAtUserLocation(on: mapView)
     }
 
+    @IBAction func addGeofence(_ sender: Any) {
+        presenter?.showGeofence(region: mapView.region)
+    }
+
     // MARK: - MapViewProtocol
+
 }

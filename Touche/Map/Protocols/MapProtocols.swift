@@ -14,7 +14,7 @@ protocol MapViewProtocol: class {
 }
 
 protocol MapPresenterProtocol: class {
-
+    func showGeofence(region: MKCoordinateRegion)
 }
 
 protocol MapInteractorInputProtocol {
@@ -23,8 +23,9 @@ protocol MapInteractorInputProtocol {
 
 protocol MapInteractorOutputProtocol: class {
     func centerMapAtUserLocation(on mapView: MKMapView)
+    
 }
 
 protocol MapWireFrameProtocol {
-
+    func presentGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion)
 }
