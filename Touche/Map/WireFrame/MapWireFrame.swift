@@ -35,10 +35,11 @@ public class MapWireFrame: MapWireFrameProtocol {
     // MARK: - MapWireFrameProtocol
 
     func presentGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
-        let navigationController = GeofenceWireFrame.createGeofenceModule(region: region)
+        guard let sourceView = view as? MapView else { return }
 
-        if let sourceView = view as? MapView,
-            let geofenceView = navigationController.children.first as? GeofenceView {
+        let navigationController = GeofenceWireFrame.createGeofenceModule(region: region, geofences: view.geofences)
+
+        if let geofenceView = navigationController.children.first as? GeofenceView {
             geofenceView.modalPresentationStyle = .overCurrentContext
 
             sourceView.present(navigationController, animated: true)

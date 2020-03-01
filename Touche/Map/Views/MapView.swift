@@ -18,6 +18,7 @@ class MapView: UIViewController, MapViewProtocol {
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
 
     var locationManager = CLLocationManager()
+    var geofences = [Geofence]()
 
     // MARK: - UIViewController
     

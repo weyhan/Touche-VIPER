@@ -16,4 +16,13 @@ class GeofenceInteractor: GeofenceInteractorInputProtocol {
 
     // MARK: - GeofenceInteractorInputProtocol
 
+    func save(geofences: [Geofence]) {
+        let encoder = JSONEncoder()
+        do {
+          let data = try encoder.encode(geofences)
+          UserDefaults.standard.set(data, forKey: PreferencesKeys.geofences)
+        } catch {
+          print("error encoding geotifications")
+        }
+    }
 }

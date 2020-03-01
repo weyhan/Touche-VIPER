@@ -17,13 +17,14 @@ public class GeofenceWireFrame: GeofenceWireFrameProtocol {
 
     // MARK: - Factory
 
-    class func createGeofenceModule(region: MKCoordinateRegion) -> UIViewController {
+    class func createGeofenceModule(region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController {
         let navigationController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "AddGeofenceNavigationController")
 
         if let view = navigationController.children.first as? GeofenceView {
             let presenter = GeofencePresenter()
 
             view.presenter = presenter
+            view.geofences = geofences
             presenter.view = view
             presenter.wireFrame = GeofenceWireFrame()
             presenter.interactor = GeofenceInteractor()

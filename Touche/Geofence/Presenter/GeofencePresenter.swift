@@ -25,6 +25,20 @@ class GeofencePresenter: GeofencePresenterProtocol, GeofenceInteractorOutputProt
         view?.radius = String(format: "%.0f", 20.0)
     }
 
+    func cancelAddGeofence() {
+        if let geofenceView = view as? UIViewController {
+            geofenceView.dismiss(animated: true)
+        }
+    }
+
     // MARK: - GeofenceInteractorOutputProtocol
 
+    func add(geofence: Geofence) {
+        guard let view = view as? GeofenceView else { return }
+
+        var geofences = view.geofences
+        geofences.append(geofence)
+        interactor?.save(geofences: geofences)
+        view.dismiss(animated: true)
+    }
 }

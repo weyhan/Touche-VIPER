@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 protocol MapViewProtocol: class {
-
+    var geofences: [Geofence] { get set }
 }
 
 protocol MapPresenterProtocol: class {

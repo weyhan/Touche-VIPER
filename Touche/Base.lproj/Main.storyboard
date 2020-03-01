@@ -158,8 +158,20 @@
                             <outlet property="delegate" destination="42c-2L-UH6" id="4NN-7R-Aac"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Configure Geofence" id="i6a-56-O7B"/>
+                    <navigationItem key="navigationItem" title="Configure Geofence" id="i6a-56-O7B">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="kiD-a6-9gr">
+                            <connections>
+                                <action selector="cancelAddGeofence:" destination="42c-2L-UH6" id="QN3-8q-mZI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="HtO-S8-UlB">
+                            <connections>
+                                <action selector="addGeofence:" destination="42c-2L-UH6" id="xUY-4y-Io7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="location" destination="Uza-Ng-AUN" id="Zwa-tg-v7w"/>
                         <outlet property="mapView" destination="rRu-GB-6Qr" id="M3k-kx-8a9"/>
                         <outlet property="radiusTextField" destination="nAZ-JW-3y1" id="9xt-Le-Ml4"/>
                     </connections>
