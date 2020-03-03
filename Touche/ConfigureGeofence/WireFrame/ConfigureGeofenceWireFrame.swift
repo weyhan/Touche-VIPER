@@ -1,5 +1,5 @@
 //
-//  GeofenceWireFrame.swift
+//  ConfigureGeofenceWireFrame.swift
 //  Touche-VIPER
 //
 //  Created by weyhan.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-public class GeofenceWireFrame: GeofenceWireFrameProtocol {
+public class ConfigureGeofenceWireFrame: ConfigureGeofenceWireFrameProtocol {
 
     // MARK: - Properties
 
@@ -18,16 +18,16 @@ public class GeofenceWireFrame: GeofenceWireFrameProtocol {
     // MARK: - Factory
 
     class func createGeofenceModule(region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController {
-        let navigationController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "AddGeofenceNavigationController")
+        let navigationController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "ConfigureGeofenceNavigationController")
 
-        if let view = navigationController.children.first as? GeofenceView {
-            let presenter = GeofencePresenter()
+        if let view = navigationController.children.first as? ConfigureGeofenceView {
+            let presenter = ConfigureGeofencePresenter()
 
             view.presenter = presenter
             view.geofences = geofences
             presenter.view = view
-            presenter.wireFrame = GeofenceWireFrame()
-            presenter.interactor = GeofenceInteractor()
+            presenter.wireFrame = ConfigureGeofenceWireFrame()
+            presenter.interactor = ConfigureGeofenceInteractor()
             presenter.region = region
 
             return navigationController
@@ -36,6 +36,6 @@ public class GeofenceWireFrame: GeofenceWireFrameProtocol {
         return UIViewController()
     }
 
-    // MARK: - GeofenceWireFrameProtocol
+    // MARK: - ConfigureGeofenceWireFrameProtocol
 
 }

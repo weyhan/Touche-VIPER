@@ -34,13 +34,13 @@ public class MapWireFrame: MapWireFrameProtocol {
 
     // MARK: - MapWireFrameProtocol
 
-    func presentGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
+    func presentAddGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
         guard let sourceView = view as? MapView else { return }
 
-        let navigationController = GeofenceWireFrame.createGeofenceModule(region: region, geofences: view.geofences)
+        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(region: region, geofences: view.geofences)
 
-        if let geofenceView = navigationController.children.first as? GeofenceView {
-            geofenceView.modalPresentationStyle = .overCurrentContext
+        if let addGeofenceView = navigationController.children.first as? ConfigureGeofenceView {
+            addGeofenceView.modalPresentationStyle = .overCurrentContext
 
             sourceView.present(navigationController, animated: true)
         }

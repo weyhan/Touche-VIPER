@@ -1,5 +1,5 @@
 //
-//  GeofenceInteractor.swift
+//  ConfigureGeofenceInteractor.swift
 //  Touche-VIPER
 //
 //  Created by weyhan.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class GeofenceInteractor: GeofenceInteractorInputProtocol {
+class ConfigureGeofenceInteractor: ConfigureGeofenceInteractorInputProtocol {
 
     // MARK: - Properties
 
-    weak var presenter: GeofenceInteractorOutputProtocol?
+    weak var presenter: ConfigureGeofenceInteractorOutputProtocol?
 
-    // MARK: - GeofenceInteractorInputProtocol
+    // MARK: - ConfigureGeofenceInteractorInputProtocol
 
     func save(geofences: [Geofence]) {
         let encoder = JSONEncoder()

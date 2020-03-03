@@ -13,6 +13,7 @@ import CoreLocation
 class MapView: UIViewController, MapViewProtocol {
 
     // MARK: - Properties
+
     @IBOutlet weak var mapView: MKMapView!
 
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
@@ -21,7 +22,7 @@ class MapView: UIViewController, MapViewProtocol {
     var geofences = [Geofence]()
 
     // MARK: - UIViewController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,7 @@ class MapView: UIViewController, MapViewProtocol {
     }
 
     @IBAction func addGeofence(_ sender: Any) {
-        presenter?.showGeofence(region: mapView.region)
+        presenter?.showAddGeofence(region: mapView.region)
     }
 
     // MARK: - MapViewProtocol

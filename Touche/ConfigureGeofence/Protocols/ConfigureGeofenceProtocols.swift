@@ -1,5 +1,5 @@
 //
-//  GeofenceProtocols.swift
+//  ConfigureGeofenceProtocols.swift
 //  Touche-VIPER
 //
 //  Created by weyhan.
@@ -9,27 +9,27 @@
 import Foundation
 import MapKit
 
-protocol GeofenceViewProtocol: class {
+protocol ConfigureGeofenceViewProtocol: class {
     var geofences: [Geofence] { get set }
     var radius: String? { get set }
     var region: MKCoordinateRegion? { get set }
 }
 
-protocol GeofencePresenterProtocol: class {
+protocol ConfigureGeofencePresenterProtocol: class {
     var region: MKCoordinateRegion? { get set }
 
     func viewDidLoad()
-    func cancelAddGeofence()
+    func cancelConfigureGeofence()
 }
 
-protocol GeofenceInteractorInputProtocol {
+protocol ConfigureGeofenceInteractorInputProtocol {
     func save(geofences: [Geofence])
 }
 
-protocol GeofenceInteractorOutputProtocol: class {
+protocol ConfigureGeofenceInteractorOutputProtocol: class {
     func add(geofence: Geofence)
 }
 
-protocol GeofenceWireFrameProtocol {
+protocol ConfigureGeofenceWireFrameProtocol {
     static func createGeofenceModule(region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController
 }

@@ -19,8 +19,8 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
 
     // MARK: - MapPresenterProtocol
 
-    func showGeofence(region: MKCoordinateRegion) {
-        wireFrame?.presentGeofenceScreen(from: view!, region: region)
+    func showAddGeofence(region: MKCoordinateRegion) {
+        wireFrame?.presentAddGeofenceScreen(from: view!, region: region)
     }
 
     // MARK: - MapInteractorOutputProtocol
@@ -29,7 +29,7 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
         mapView.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
     }
 
-    func didRetrieveGeofences(geofences: [Geofence]) {
+    func didRetrieve(geofences: [Geofence]) {
 
     }
 }

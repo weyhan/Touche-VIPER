@@ -1,5 +1,5 @@
 //
-//  GeofenceView.swift
+//  ConfigureGeofenceView.swift
 //  Touche-VIPER
 //
 //  Created by weyhan.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class GeofenceView: UITableViewController, GeofenceViewProtocol {
+class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtocol {
 
     // MARK: - Properties
 
@@ -18,7 +18,7 @@ class GeofenceView: UITableViewController, GeofenceViewProtocol {
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var radiusTextField: RadiusTextField!
 
-    var presenter: (GeofencePresenterProtocol & GeofenceInteractorOutputProtocol)?
+    var presenter: (ConfigureGeofencePresenterProtocol & ConfigureGeofenceInteractorOutputProtocol)?
     var radius: String?
     var region: MKCoordinateRegion?
     var geofences = [Geofence]()
@@ -44,9 +44,10 @@ class GeofenceView: UITableViewController, GeofenceViewProtocol {
         presenter?.add(geofence: geofence)
     }
 
-    @IBAction func cancelAddGeofence(_ sender: UIBarButtonItem) {
-        presenter?.cancelAddGeofence()
+    @IBAction func cancelConfigureGeofence(_ sender: UIBarButtonItem) {
+        presenter?.cancelConfigureGeofence()
     }
 
-    // MARK: - GeofenceViewProtocol
+    // MARK: - ConfigureGeofenceViewProtocol
+
 }
