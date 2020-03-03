@@ -40,7 +40,6 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         let location = self.location.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         let geofence = Geofence(coordinate: coordinate, radius: radius, identifier: identifier, location: location, ssid: "")
-        geofences.append(geofence)
         presenter?.add(geofence: geofence)
     }
 

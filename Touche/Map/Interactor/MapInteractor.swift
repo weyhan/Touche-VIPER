@@ -15,4 +15,16 @@ class MapInteractor: MapInteractorInputProtocol {
     weak var presenter: MapInteractorOutputProtocol?
 
     // MARK: - MapInteractorInputProtocol
+
+    func retrieveGeofences() {
+        let savedGeofences = Geofence.allGeofences()
+        if savedGeofences.count != 0 {
+            presenter?.didRetrieve(geofences: savedGeofences)
+        }
+    }
+
+    func save(geofences: [Geofence]) {
+        Geofence.save(geofences: geofences)
+    }
+
 }

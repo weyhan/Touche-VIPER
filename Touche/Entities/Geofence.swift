@@ -26,6 +26,9 @@ class Geofence: NSObject, Codable, MKAnnotation {
     var location: String
     var ssid: String
 
+    var title: String? { location }
+    var subtitle: String? { "Radious: \(radius)m" }
+
     init(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String, location: String, ssid: String) {
         self.coordinate = coordinate
         self.radius = radius
@@ -65,5 +68,16 @@ extension Geofence {
             return savedGeofences
         }
         return []
+    }
+
+    public class func save(geofences: [Geofence]) {
+        let encoder = JSONEncoder()
+        do {
+          let data = try encoder.encode(geofences)
+          UserDefaults.standard.set(data, forKey: PreferencesKeys.geofences)
+
+        } catch {
+          print("error encoding geofences")
+        }
     }
 }

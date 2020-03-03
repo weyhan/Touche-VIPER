@@ -19,6 +19,10 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
 
     // MARK: - MapPresenterProtocol
 
+    func viewDidLoad() {
+        interactor?.retrieveGeofences()
+    }
+
     func showAddGeofence(region: MKCoordinateRegion) {
         wireFrame?.presentAddGeofenceScreen(from: view!, region: region)
     }
@@ -30,6 +34,28 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
     }
 
     func didRetrieve(geofences: [Geofence]) {
+        annotateMap(withGeofences: geofences)
+    }
 
+    func annotateMap(withGeofences geofences: [Geofence]) {
+        view?.geofences.removeAll()
+        geofences.forEach {
+            view?.add(annotation: $0)
+        }
+    }
+
+    func remove(geofence: Geofence) {
+        view?.remove(geofence: geofence)
+    }
+
+    func save(geofences: [Geofence]) {
+        interactor?.save(geofences: geofences)
+    }
+
+}
+
+extension MapPresenter: ConfigureGeofenceDelegate {
+    func didAdd(geofence: Geofence) {
+        view?.add(annotation: geofence)
     }
 }

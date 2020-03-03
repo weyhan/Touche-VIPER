@@ -20,11 +20,13 @@ public class MapWireFrame: MapWireFrameProtocol {
 
         if let view = navigationController.children.first as? MapView {
             let presenter = MapPresenter()
+            let interactor = MapInteractor()
 
             view.presenter = presenter
+            interactor.presenter = presenter
             presenter.view = view
             presenter.wireFrame = MapWireFrame()
-            presenter.interactor = MapInteractor()
+            presenter.interactor = interactor
 
             return navigationController
         }
@@ -35,9 +37,12 @@ public class MapWireFrame: MapWireFrameProtocol {
     // MARK: - MapWireFrameProtocol
 
     func presentAddGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
-        guard let sourceView = view as? MapView else { return }
+        guard let sourceView = view as? MapView,
+            let delegate = sourceView.presenter as? ConfigureGeofenceDelegate else {
+                return
+        }
 
-        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(region: region, geofences: view.geofences)
+        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(with: delegate, region: region, geofences: view.geofences)
 
         if let addGeofenceView = navigationController.children.first as? ConfigureGeofenceView {
             addGeofenceView.modalPresentationStyle = .overCurrentContext

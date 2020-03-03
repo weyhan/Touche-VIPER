@@ -9,6 +9,10 @@
 import Foundation
 import MapKit
 
+protocol ConfigureGeofenceDelegate: class {
+    func didAdd(geofence: Geofence)
+}
+
 protocol ConfigureGeofenceViewProtocol: class {
     var geofences: [Geofence] { get set }
     var radius: String? { get set }
@@ -17,6 +21,7 @@ protocol ConfigureGeofenceViewProtocol: class {
 
 protocol ConfigureGeofencePresenterProtocol: class {
     var region: MKCoordinateRegion? { get set }
+    var delegate: ConfigureGeofenceDelegate? { get set }
 
     func viewDidLoad()
     func cancelConfigureGeofence()
@@ -31,5 +36,5 @@ protocol ConfigureGeofenceInteractorOutputProtocol: class {
 }
 
 protocol ConfigureGeofenceWireFrameProtocol {
-    static func createGeofenceModule(region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController
+    static func createGeofenceModule(with: ConfigureGeofenceDelegate, region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController
 }

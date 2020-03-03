@@ -17,7 +17,7 @@ public class ConfigureGeofenceWireFrame: ConfigureGeofenceWireFrameProtocol {
 
     // MARK: - Factory
 
-    class func createGeofenceModule(region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController {
+    class func createGeofenceModule(with delegate: ConfigureGeofenceDelegate, region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController {
         let navigationController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "ConfigureGeofenceNavigationController")
 
         if let view = navigationController.children.first as? ConfigureGeofenceView {
@@ -29,6 +29,7 @@ public class ConfigureGeofenceWireFrame: ConfigureGeofenceWireFrameProtocol {
             presenter.wireFrame = ConfigureGeofenceWireFrame()
             presenter.interactor = ConfigureGeofenceInteractor()
             presenter.region = region
+            presenter.delegate = delegate
 
             return navigationController
         }

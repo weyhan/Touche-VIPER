@@ -11,19 +11,27 @@ import MapKit
 
 protocol MapViewProtocol: class {
     var geofences: [Geofence] { get set }
+
+    func add(annotation: Geofence)
+    func remove(geofence: Geofence)
 }
 
 protocol MapPresenterProtocol: class {
+    func viewDidLoad()
+    func annotateMap(withGeofences geofences: [Geofence])
     func showAddGeofence(region: MKCoordinateRegion)
+    func remove(geofence: Geofence)
+    func save(geofences: [Geofence])
 }
 
 protocol MapInteractorInputProtocol {
-
+    func retrieveGeofences()
+    func save(geofences: [Geofence])
 }
 
 protocol MapInteractorOutputProtocol: class {
+    func didRetrieve(geofences: [Geofence])
     func centerMapAtUserLocation(on mapView: MKMapView)
-    
 }
 
 protocol MapWireFrameProtocol {

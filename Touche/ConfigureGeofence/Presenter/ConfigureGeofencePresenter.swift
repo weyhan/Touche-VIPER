@@ -17,6 +17,7 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
     var interactor: ConfigureGeofenceInteractorInputProtocol?
     var wireFrame: ConfigureGeofenceWireFrameProtocol?
     var region: MKCoordinateRegion?
+    var delegate: ConfigureGeofenceDelegate?
 
     // MARK: - ConfigureGeofencePresenterProtocol
 
@@ -40,5 +41,7 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         geofences.append(geofence)
         interactor?.save(geofences: geofences)
         view.dismiss(animated: true)
+
+        delegate?.didAdd(geofence: geofence)
     }
 }
