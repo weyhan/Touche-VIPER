@@ -14,8 +14,9 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
     // MARK: - Properties
 
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var radiusTextField: RadiusTextField!
 
     var presenter: (ConfigureGeofencePresenterProtocol & ConfigureGeofenceInteractorOutputProtocol)?
@@ -31,13 +32,16 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
         mapView.region = region!
         radiusTextField.text = radius
+
+        addButton.isEnabled = false
+        locationTextField.addTarget(self, action: #selector(locationTextFieldEditingChanged), for: .editingChanged)
     }
 
     @IBAction func addGeofence(_ sender: UIBarButtonItem) {
         let coordinate = mapView.centerCoordinate
         let radius = Double(radiusTextField.text!) ?? 0
         let identifier = UUID().uuidString
-        let location = self.location.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let location = self.locationTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
         let geofence = Geofence(coordinate: coordinate, radius: radius, identifier: identifier, location: location, ssid: "")
         presenter?.add(geofence: geofence)
@@ -47,6 +51,16 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         presenter?.cancelConfigureGeofence()
     }
 
+    // MARK: - Target selectors
+
+    @objc func locationTextFieldEditingChanged(_ textField: UITextField) {
+        presenter?.locationTextFieldEditingChanged(value: textField.text)
+    }
+
     // MARK: - ConfigureGeofenceViewProtocol
+
+    func setAddButton(state: FieldState) {
+        addButton.isEnabled = (state == .enabled)
+    }
 
 }

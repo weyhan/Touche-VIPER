@@ -170,7 +170,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="location" destination="Uza-Ng-AUN" id="Zwa-tg-v7w"/>
+                        <outlet property="addButton" destination="HtO-S8-UlB" id="me2-mL-b8l"/>
+                        <outlet property="locationTextField" destination="Uza-Ng-AUN" id="Zwa-tg-v7w"/>
                         <outlet property="mapView" destination="rRu-GB-6Qr" id="M3k-kx-8a9"/>
                         <outlet property="radiusTextField" destination="nAZ-JW-3y1" id="9xt-Le-Ml4"/>
                     </connections>

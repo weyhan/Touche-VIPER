@@ -32,6 +32,15 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         }
     }
 
+    func locationTextFieldEditingChanged(value: String?) {
+        guard let value = value, value != "" else {
+            view?.setAddButton(state: .disabled)
+            return
+        }
+
+        view?.setAddButton(state: .enabled)
+    }
+
     // MARK: - ConfigureGeofenceInteractorOutputProtocol
 
     func add(geofence: Geofence) {

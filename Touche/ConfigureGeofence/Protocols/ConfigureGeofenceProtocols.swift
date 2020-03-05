@@ -9,6 +9,11 @@
 import Foundation
 import MapKit
 
+enum FieldState {
+    case enabled
+    case disabled
+}
+
 protocol ConfigureGeofenceDelegate: class {
     func didAdd(geofence: Geofence)
 }
@@ -17,6 +22,8 @@ protocol ConfigureGeofenceViewProtocol: class {
     var geofences: [Geofence] { get set }
     var radius: String? { get set }
     var region: MKCoordinateRegion? { get set }
+
+    func setAddButton(state: FieldState)
 }
 
 protocol ConfigureGeofencePresenterProtocol: class {
@@ -25,6 +32,7 @@ protocol ConfigureGeofencePresenterProtocol: class {
 
     func viewDidLoad()
     func cancelConfigureGeofence()
+    func locationTextFieldEditingChanged(value: String?)
 }
 
 protocol ConfigureGeofenceInteractorInputProtocol {
