@@ -28,7 +28,11 @@ public class ConfigureGeofenceWireFrame: ConfigureGeofenceWireFrameProtocol {
             presenter.view = view
             presenter.wireFrame = ConfigureGeofenceWireFrame()
             presenter.interactor = ConfigureGeofenceInteractor()
-            presenter.region = region
+
+            let shrinkenSpan = MKCoordinateSpan(latitudeDelta: region.span.latitudeDelta / 2.7, longitudeDelta: region.span.longitudeDelta / 2.7)
+            let shrinkedRegion = MKCoordinateRegion.init(center: region.center, span: shrinkenSpan)
+            presenter.region = shrinkedRegion
+
             presenter.delegate = delegate
 
             return navigationController
