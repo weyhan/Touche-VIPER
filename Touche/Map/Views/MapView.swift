@@ -51,13 +51,29 @@ class MapView: UIViewController, MapViewProtocol {
         guard let index = geofences.firstIndex(of: geofence) else { return }
         geofences.remove(at: index)
         mapView.removeAnnotation(geofence)
+        removeRadiusOverlay(forGeofence: geofence)
 
         presenter?.save(geofences: geofences)
+    }
+
+    func removeRadiusOverlay(forGeofence geofence: Geofence) {
+        for overlay in mapView.overlays {
+            guard let overlayCircle = overlay as? MKCircle else { continue }
+            let coordinate = overlayCircle.coordinate
+            if coordinate.latitude == geofence.coordinate.latitude &&
+                coordinate.longitude == geofence.coordinate.longitude &&
+                overlayCircle.radius == geofence.radius {
+
+                mapView.removeOverlay(overlayCircle)
+                break
+            }
+        }
     }
 
     func add(annotation geofence: Geofence) {
         geofences.append(geofence)
         mapView.addAnnotation(geofence)
+        mapView.addOverlay(MKCircle(center: geofence.coordinate, radius: geofence.radius))
     }
 
 }
@@ -88,6 +104,17 @@ extension MapView: MKMapViewDelegate {
         }
 
         return nil
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+      if overlay is MKCircle {
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.lineWidth = 2.0
+        circleRenderer.strokeColor = UIColor.systemTeal.withAlphaComponent(0.5)
+        circleRenderer.fillColor = UIColor.systemTeal.withAlphaComponent(0.1)
+        return circleRenderer
+      }
+      return MKOverlayRenderer(overlay: overlay)
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
