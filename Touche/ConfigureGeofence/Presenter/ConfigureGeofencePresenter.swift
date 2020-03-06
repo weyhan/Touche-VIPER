@@ -41,6 +41,30 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         view?.setAddButton(state: .enabled)
     }
 
+    func radiusTextField(shouldChange text: String?, range: NSRange, string: String) -> Bool {
+        if let text = text, text.count != 0, let projectedTextRange = Range(range, in: text), string.count != 0 {
+            var projectedText = text
+
+            if range.length == 0 {
+                projectedText.insert(contentsOf: string, at: projectedText.index(projectedText.startIndex, offsetBy: range.location))
+
+            } else {
+                projectedText.replaceSubrange(projectedTextRange, with: string)
+            }
+
+            do {
+                let regex = try NSRegularExpression(pattern: "\\A(\\d+[.,]{0,1}\\d{0,2})\\z", options: [])
+                let results = regex.matches(in: projectedText, options: [], range: NSRange(location: 0, length: projectedText.count))
+
+                return !results.isEmpty
+
+            } catch let error {
+                print("invalid regex: \(error.localizedDescription)")
+            }
+        }
+        return true
+    }
+
     // MARK: - ConfigureGeofenceInteractorOutputProtocol
 
     func add(geofence: Geofence) {

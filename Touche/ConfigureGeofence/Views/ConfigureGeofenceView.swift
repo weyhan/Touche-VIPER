@@ -31,6 +31,8 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         presenter?.viewDidLoad()
 
         mapView.region = region!
+
+        radiusTextField.delegate = self
         radiusTextField.text = radius
 
         addButton.isEnabled = false
@@ -63,4 +65,18 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         addButton.isEnabled = (state == .enabled)
     }
 
+}
+
+extension AddGeofenceView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let presenter = presenter, let text = textField.text else {
+            return true
+        }
+
+        if textField is RadiusTextField {
+            return presenter.radiusTextField(shouldChange: text, range: range, string: string)
+        }
+
+        return true
+    }
 }
