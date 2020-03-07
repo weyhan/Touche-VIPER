@@ -22,7 +22,6 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
     var presenter: (ConfigureGeofencePresenterProtocol & ConfigureGeofenceInteractorOutputProtocol)?
     var radius: String?
     var region: MKCoordinateRegion?
-    var geofences = [Geofence]()
 
     // MARK: - UIViewController
 
@@ -68,7 +67,7 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
 }
 
-extension AddGeofenceView: UITextFieldDelegate {
+extension ConfigureGeofenceView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let presenter = presenter, let text = textField.text else {
             return true

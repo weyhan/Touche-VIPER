@@ -29,7 +29,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KY1-iV-tT5">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="Geofence" id="EbE-iW-sHr">
+                            <barButtonItem title="Add Geofence" image="Geofence" id="EbE-iW-sHr">
                                 <connections>
                                     <action selector="addGeofence:" destination="BYZ-38-t0r" id="EtQ-Yi-tk6"/>
                                 </connections>
@@ -42,6 +42,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addGeofenceButton" destination="EbE-iW-sHr" id="AnI-mN-OQB"/>
                         <outlet property="mapView" destination="6hR-aQ-LqT" id="Xk0-Lv-Fth"/>
                     </connections>
                 </viewController>

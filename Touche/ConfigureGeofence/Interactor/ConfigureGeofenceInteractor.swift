@@ -16,7 +16,4 @@ class ConfigureGeofenceInteractor: ConfigureGeofenceInteractorInputProtocol {
 
     // MARK: - ConfigureGeofenceInteractorInputProtocol
 
-    func save(geofences: [Geofence]) {
-        Geofence.save(geofences: geofences)
-    }
 }

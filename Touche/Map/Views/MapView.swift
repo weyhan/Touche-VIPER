@@ -14,6 +14,7 @@ class MapView: UIViewController, MapViewProtocol {
 
     // MARK: - Properties
 
+    @IBOutlet weak var addGeofenceButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
 
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
@@ -47,6 +48,10 @@ class MapView: UIViewController, MapViewProtocol {
 
     // MARK: - MapViewProtocol
 
+    func addGeofenceButton(isEnabled: Bool){
+        addGeofenceButton.isEnabled = isEnabled
+    }
+
     func remove(geofence: Geofence) {
         guard let index = geofences.firstIndex(of: geofence) else { return }
         geofences.remove(at: index)
@@ -72,6 +77,8 @@ class MapView: UIViewController, MapViewProtocol {
 
     func add(annotation geofence: Geofence) {
         geofences.append(geofence)
+        presenter?.save(geofences: geofences)
+
         mapView.addAnnotation(geofence)
         mapView.addOverlay(MKCircle(center: geofence.coordinate, radius: geofence.radius))
     }

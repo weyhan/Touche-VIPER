@@ -42,7 +42,7 @@ public class MapWireFrame: MapWireFrameProtocol {
                 return
         }
 
-        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(with: delegate, region: region, geofences: view.geofences)
+        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(with: delegate, region: region)
 
         if let addGeofenceView = navigationController.children.first as? ConfigureGeofenceView {
             addGeofenceView.modalPresentationStyle = .overCurrentContext

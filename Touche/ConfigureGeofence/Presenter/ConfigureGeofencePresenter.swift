@@ -69,10 +69,6 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
 
     func add(geofence: Geofence) {
         guard let view = view as? ConfigureGeofenceView else { return }
-
-        var geofences = view.geofences
-        geofences.append(geofence)
-        interactor?.save(geofences: geofences)
         view.dismiss(animated: true)
 
         delegate?.didAdd(geofence: geofence)

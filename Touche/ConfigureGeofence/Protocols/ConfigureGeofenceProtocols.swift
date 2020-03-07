@@ -19,7 +19,6 @@ protocol ConfigureGeofenceDelegate: class {
 }
 
 protocol ConfigureGeofenceViewProtocol: class {
-    var geofences: [Geofence] { get set }
     var radius: String? { get set }
     var region: MKCoordinateRegion? { get set }
 
@@ -33,12 +32,11 @@ protocol ConfigureGeofencePresenterProtocol: class {
     func viewDidLoad()
     func cancelConfigureGeofence()
     func textFieldEditingChanged(location: String?, radius: String?)
-nce/Protocols/AddGeofenceProtocols.swift
     func radiusTextField(shouldChange text: String?, range: NSRange, string: String) -> Bool
 }
 
 protocol ConfigureGeofenceInteractorInputProtocol {
-    func save(geofences: [Geofence])
+
 }
 
 protocol ConfigureGeofenceInteractorOutputProtocol: class {
@@ -46,5 +44,5 @@ protocol ConfigureGeofenceInteractorOutputProtocol: class {
 }
 
 protocol ConfigureGeofenceWireFrameProtocol {
-    static func createGeofenceModule(with: ConfigureGeofenceDelegate, region: MKCoordinateRegion, geofences: [Geofence]) -> UIViewController
+    static func createGeofenceModule(with: ConfigureGeofenceDelegate, region: MKCoordinateRegion) -> UIViewController
 }

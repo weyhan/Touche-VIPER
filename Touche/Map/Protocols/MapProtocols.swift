@@ -12,6 +12,7 @@ import MapKit
 protocol MapViewProtocol: class {
     var geofences: [Geofence] { get set }
 
+    func addGeofenceButton(isEnabled: Bool) 
     func add(annotation: Geofence)
     func remove(geofence: Geofence)
 }
@@ -31,6 +32,7 @@ protocol MapInteractorInputProtocol {
 
 protocol MapInteractorOutputProtocol: class {
     func didRetrieve(geofences: [Geofence])
+    func addGeofenceButton(isEnabled: Bool)
     func centerMapAtUserLocation(on mapView: MKMapView)
 }
 

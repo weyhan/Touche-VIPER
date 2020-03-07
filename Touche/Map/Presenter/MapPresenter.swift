@@ -37,6 +37,10 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
         annotateMap(withGeofences: geofences)
     }
 
+    func addGeofenceButton(isEnabled: Bool) {
+        view?.addGeofenceButton(isEnabled: isEnabled)
+    }
+
     func annotateMap(withGeofences geofences: [Geofence]) {
         view?.geofences.removeAll()
         geofences.forEach {
