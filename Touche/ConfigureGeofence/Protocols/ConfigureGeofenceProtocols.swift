@@ -32,7 +32,8 @@ protocol ConfigureGeofencePresenterProtocol: class {
 
     func viewDidLoad()
     func cancelConfigureGeofence()
-    func locationTextFieldEditingChanged(value: String?)
+    func textFieldEditingChanged(location: String?, radius: String?)
+nce/Protocols/AddGeofenceProtocols.swift
     func radiusTextField(shouldChange text: String?, range: NSRange, string: String) -> Bool
 }
 

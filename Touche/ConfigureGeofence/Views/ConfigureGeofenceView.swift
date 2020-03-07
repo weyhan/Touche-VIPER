@@ -36,7 +36,8 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         radiusTextField.text = radius
 
         addButton.isEnabled = false
-        locationTextField.addTarget(self, action: #selector(locationTextFieldEditingChanged), for: .editingChanged)
+        locationTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
+        radiusTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
     }
 
     @IBAction func addGeofence(_ sender: UIBarButtonItem) {
@@ -55,8 +56,8 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
     // MARK: - Target selectors
 
-    @objc func locationTextFieldEditingChanged(_ textField: UITextField) {
-        presenter?.locationTextFieldEditingChanged(value: textField.text)
+    @objc func textFieldEditingChange(_ textField: UITextField) {
+        presenter?.textFieldEditingChanged(location: locationTextField.text, radius: radiusTextField.text)
     }
 
     // MARK: - ConfigureGeofenceViewProtocol

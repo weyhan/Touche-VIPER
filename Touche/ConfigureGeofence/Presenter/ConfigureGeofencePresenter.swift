@@ -32,8 +32,8 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         }
     }
 
-    func locationTextFieldEditingChanged(value: String?) {
-        guard let value = value, value != "" else {
+    func textFieldEditingChanged(location: String?, radius: String?) {
+        guard let location = location, location != "", let radius = radius, radius != "" else {
             view?.setAddButton(state: .disabled)
             return
         }
