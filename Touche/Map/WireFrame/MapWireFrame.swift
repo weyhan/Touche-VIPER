@@ -21,9 +21,12 @@ public class MapWireFrame: MapWireFrameProtocol {
         if let view = navigationController.children.first as? MapView {
             let presenter = MapPresenter()
             let interactor = MapInteractor()
+            let locationService = LocationService()
 
             view.presenter = presenter
             interactor.presenter = presenter
+            locationService.delegate = interactor
+            interactor.locationService = locationService
             presenter.view = view
             presenter.wireFrame = MapWireFrame()
             presenter.interactor = interactor

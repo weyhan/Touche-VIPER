@@ -14,15 +14,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6hR-aQ-LqT">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hR-aQ-LqT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-6f-3FU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Region:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVP-Xs-XaI">
+                                        <rect key="frame" x="8" y="8" width="73" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vy-c9-ld6">
+                                        <rect key="frame" x="89" y="8" width="317" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="cVP-Xs-XaI" firstAttribute="top" secondItem="XsV-6f-3FU" secondAttribute="top" constant="8" id="28w-Ar-ERO"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Vy-c9-ld6" secondAttribute="bottom" constant="8" id="3YP-Cj-1vJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Vy-c9-ld6" secondAttribute="trailing" constant="8" id="FM8-f5-RcG"/>
+                                    <constraint firstItem="cVP-Xs-XaI" firstAttribute="leading" secondItem="XsV-6f-3FU" secondAttribute="leading" constant="8" id="MO5-r6-hEH"/>
+                                    <constraint firstItem="7Vy-c9-ld6" firstAttribute="top" secondItem="cVP-Xs-XaI" secondAttribute="top" id="WUT-da-0hz"/>
+                                    <constraint firstItem="7Vy-c9-ld6" firstAttribute="leading" secondItem="cVP-Xs-XaI" secondAttribute="trailing" constant="8" id="vUY-3Z-ItS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6hR-aQ-LqT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Js-Xv-87z"/>
+                            <constraint firstItem="XsV-6f-3FU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9Gm-DF-yf9"/>
                             <constraint firstItem="6hR-aQ-LqT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fkk-6h-x8T"/>
                             <constraint firstAttribute="bottom" secondItem="6hR-aQ-LqT" secondAttribute="bottom" id="SGL-oB-gQk"/>
+                            <constraint firstItem="XsV-6f-3FU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UJ2-A8-kfd"/>
+                            <constraint firstItem="XsV-6f-3FU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mIa-NW-Jb6"/>
                             <constraint firstItem="6hR-aQ-LqT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="x8W-t7-feJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -44,6 +73,7 @@
                     <connections>
                         <outlet property="addGeofenceButton" destination="EbE-iW-sHr" id="AnI-mN-OQB"/>
                         <outlet property="mapView" destination="6hR-aQ-LqT" id="Xk0-Lv-Fth"/>
+                        <outlet property="regionLabel" destination="7Vy-c9-ld6" id="7zp-N6-xzC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

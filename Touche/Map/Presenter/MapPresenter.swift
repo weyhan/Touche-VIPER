@@ -23,6 +23,16 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
         interactor?.retrieveGeofences()
     }
 
+    func viewDidDisappear() {
+        interactor?.stopUpdatingLocation()
+    }
+
+    func viewDidAppear(with mapView: MKMapView) {
+        centerMapAtUserLocation(on: mapView)
+        interactor?.requestForLocationService()
+        interactor?.startUpdatingLocation()
+    }
+
     func centerMapAtUserLocation(on mapView: MKMapView) {
         mapView.centerMapAtUserLocation(latitude: 5000, longitude: 5000)
     }
@@ -53,6 +63,10 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
 
     func addGeofenceButton(isEnabled: Bool) {
         view?.addGeofenceButton(isEnabled: isEnabled)
+    }
+
+    func update(region: String) {
+        view?.update(region: region)
     }
 
 }

@@ -16,24 +16,25 @@ class MapView: UIViewController, MapViewProtocol {
 
     @IBOutlet weak var addGeofenceButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var regionLabel: UILabel!
+    
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
 
-    var locationManager = CLLocationManager()
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         mapView.delegate = self
-
         presenter?.viewDidLoad()
-
-        locationManager.requestAlwaysAuthorization()
-        mapView.showsUserLocation = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        presenter?.centerMapAtUserLocation(on: mapView)
+        presenter?.viewDidAppear(with: mapView)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        presenter?.viewDidDisappear()
     }
 
     @IBAction func centerMapAtUserLocation(latitude: Double, longitude: Double) {
@@ -75,6 +76,9 @@ class MapView: UIViewController, MapViewProtocol {
         mapView.addOverlay(MKCircle(center: geofence.coordinate, radius: geofence.radius))
     }
 
+    func update(region: String) {
+        regionLabel.text = region
+    }
 }
 
 // MARK: - MKMapViewDelegate
