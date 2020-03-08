@@ -20,8 +20,6 @@ class MapView: UIViewController, MapViewProtocol {
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
 
     var locationManager = CLLocationManager()
-    var geofences = [Geofence]()
-
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -46,21 +44,6 @@ class MapView: UIViewController, MapViewProtocol {
         presenter?.showAddGeofence(region: mapView.region)
     }
 
-    // MARK: - MapViewProtocol
-
-    func addGeofenceButton(isEnabled: Bool){
-        addGeofenceButton.isEnabled = isEnabled
-    }
-
-    func remove(geofence: Geofence) {
-        guard let index = geofences.firstIndex(of: geofence) else { return }
-        geofences.remove(at: index)
-        mapView.removeAnnotation(geofence)
-        removeRadiusOverlay(forGeofence: geofence)
-
-        presenter?.save(geofences: geofences)
-    }
-
     func removeRadiusOverlay(forGeofence geofence: Geofence) {
         for overlay in mapView.overlays {
             guard let overlayCircle = overlay as? MKCircle else { continue }
@@ -75,10 +58,19 @@ class MapView: UIViewController, MapViewProtocol {
         }
     }
 
-    func add(annotation geofence: Geofence) {
-        geofences.append(geofence)
-        presenter?.save(geofences: geofences)
+    // MARK: - MapViewProtocol
 
+    func addGeofenceButton(isEnabled: Bool){
+        addGeofenceButton.isEnabled = isEnabled
+    }
+
+    func remove(geofence: Geofence) {
+        mapView.removeAnnotation(geofence)
+        removeRadiusOverlay(forGeofence: geofence)
+        presenter?.remove(geofence: geofence)
+    }
+
+    func add(annotation geofence: Geofence) {
         mapView.addAnnotation(geofence)
         mapView.addOverlay(MKCircle(center: geofence.coordinate, radius: geofence.radius))
     }

@@ -33,6 +33,7 @@ protocol ConfigureGeofencePresenterProtocol: class {
     func cancelConfigureGeofence()
     func textFieldEditingChanged(location: String?, radius: String?)
     func radiusTextField(shouldChange text: String?, range: NSRange, string: String) -> Bool
+    func add(geofence: Geofence)
 }
 
 protocol ConfigureGeofenceInteractorInputProtocol {
@@ -40,7 +41,7 @@ protocol ConfigureGeofenceInteractorInputProtocol {
 }
 
 protocol ConfigureGeofenceInteractorOutputProtocol: class {
-    func add(geofence: Geofence)
+
 }
 
 protocol ConfigureGeofenceWireFrameProtocol {

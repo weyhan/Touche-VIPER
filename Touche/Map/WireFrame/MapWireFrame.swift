@@ -36,11 +36,8 @@ public class MapWireFrame: MapWireFrameProtocol {
 
     // MARK: - MapWireFrameProtocol
 
-    func presentAddGeofenceScreen(from view: MapViewProtocol, region: MKCoordinateRegion) {
-        guard let sourceView = view as? MapView,
-            let delegate = sourceView.presenter as? ConfigureGeofenceDelegate else {
-                return
-        }
+    func presentAddGeofenceScreen(from view: MapViewProtocol, delegate: ConfigureGeofenceDelegate, region: MKCoordinateRegion) {
+        guard let sourceView = view as? MapView else { return }
 
         let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(with: delegate, region: region)
 

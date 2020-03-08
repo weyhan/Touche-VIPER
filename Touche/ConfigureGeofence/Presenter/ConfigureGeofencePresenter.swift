@@ -65,12 +65,13 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         return true
     }
 
-    // MARK: - ConfigureGeofenceInteractorOutputProtocol
-
     func add(geofence: Geofence) {
         guard let view = view as? ConfigureGeofenceView else { return }
         view.dismiss(animated: true)
 
         delegate?.didAdd(geofence: geofence)
     }
+
+    // MARK: - ConfigureGeofenceInteractorOutputProtocol
+
 }
