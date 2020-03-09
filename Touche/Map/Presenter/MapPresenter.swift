@@ -20,7 +20,7 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
     // MARK: - MapPresenterProtocol
 
     func viewDidLoad() {
-        interactor?.retrieveGeofences()
+        interactor?.startup()
     }
 
     func viewDidDisappear() {
@@ -69,4 +69,11 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
         view?.update(region: region)
     }
 
+    func update(ssid: String) {
+        view?.update(ssid: ssid)
+    }
+
+    func update(region: String, ssid: String) {
+        view?.update(region: region, ssid: ssid)
+    }
 }

@@ -32,8 +32,8 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
         }
     }
 
-    func textFieldEditingChanged(location: String?, radius: String?) {
-        guard let location = location, location != "", let radius = radius, radius != "" else {
+    func textFieldEditingChanged(location: String?, radius: String?, ssid: String?) {
+        guard let location = location, location != "", let radius = radius, radius != "", let ssid = ssid, ssid != "" else {
             view?.setAddButton(state: .disabled)
             return
         }

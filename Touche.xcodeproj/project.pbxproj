@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1A7E312416BBD400169103 /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A7E302416BBD400169103 /* NetworkInfo.swift */; };
 		6F35D7FC240820E200ED51FB /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35D7FB240820E200ED51FB /* Geofence.swift */; };
 		6F98FA0D2414BE36000E083C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98FA0C2414BE36000E083C /* LocationService.swift */; };
 		6FA6303B24043E7800308AC3 /* ConfigureGeofencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6303224043E7700308AC3 /* ConfigureGeofencePresenter.swift */; };
@@ -28,8 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F1A7E302416BBD400169103 /* NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
 		6F35D7FB240820E200ED51FB /* Geofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		6F98FA0C2414BE36000E083C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		6FA08BED2416CC5600734B43 /* Touche.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Touche.entitlements; sourceTree = "<group>"; };
 		6FA6303224043E7700308AC3 /* ConfigureGeofencePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureGeofencePresenter.swift; sourceTree = "<group>"; };
 		6FA6303424043E7700308AC3 /* ConfigureGeofenceWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureGeofenceWireFrame.swift; sourceTree = "<group>"; };
 		6FA6303624043E7700308AC3 /* ConfigureGeofenceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureGeofenceView.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				6F98FA0C2414BE36000E083C /* LocationService.swift */,
+				6F1A7E302416BBD400169103 /* NetworkInfo.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,6 +153,7 @@
 		6FB66A892402856500D42C1F /* Touche */ = {
 			isa = PBXGroup;
 			children = (
+				6FA08BED2416CC5600734B43 /* Touche.entitlements */,
 				6FF8E7E52403015900E2C49E /* Extensions */,
 				6F35D7FA2408209900ED51FB /* Entities */,
 				6F98FA0B2414BDCB000E083C /* Services */,
@@ -296,6 +301,7 @@
 			files = (
 				6FA630412405895500308AC3 /* RadiusTestField.swift in Sources */,
 				6FF8E7E12402E15A00E2C49E /* MapWireFrame.swift in Sources */,
+				6F1A7E312416BBD400169103 /* NetworkInfo.swift in Sources */,
 				6FF8E7E32402E15A00E2C49E /* MapProtocols.swift in Sources */,
 				6FA6303F24043E7800308AC3 /* ConfigureGeofenceInteractor.swift in Sources */,
 				6FF8E7E7240301D600E2C49E /* MapKit.swift in Sources */,
@@ -452,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Touche/Touche.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Touche/Info.plist;
@@ -470,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Touche/Touche.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Touche/Info.plist;

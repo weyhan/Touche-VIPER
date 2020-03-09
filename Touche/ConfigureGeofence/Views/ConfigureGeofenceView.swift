@@ -16,6 +16,7 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var ssidTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var radiusTextField: RadiusTextField!
 
@@ -37,6 +38,7 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         addButton.isEnabled = false
         locationTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
         radiusTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
+        ssidTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
     }
 
     @IBAction func addGeofence(_ sender: UIBarButtonItem) {
@@ -44,8 +46,9 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         let radius = Double(radiusTextField.text!) ?? 0
         let identifier = UUID().uuidString
         let location = self.locationTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let ssid = ssidTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let geofence = Geofence(coordinate: coordinate, radius: radius, identifier: identifier, location: location, ssid: "")
+        let geofence = Geofence(coordinate: coordinate, radius: radius, identifier: identifier, location: location, ssid: ssid)
         presenter?.add(geofence: geofence)
     }
 
@@ -56,7 +59,7 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
     // MARK: - Target selectors
 
     @objc func textFieldEditingChange(_ textField: UITextField) {
-        presenter?.textFieldEditingChanged(location: locationTextField.text, radius: radiusTextField.text)
+        presenter?.textFieldEditingChanged(location: locationTextField.text, radius: radiusTextField.text, ssid: ssidTextField.text)
     }
 
     // MARK: - ConfigureGeofenceViewProtocol
@@ -67,7 +70,10 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
 
 }
 
+// MARK: - UITextFieldDelegate
+
 extension ConfigureGeofenceView: UITextFieldDelegate {
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let presenter = presenter, let text = textField.text else {
             return true
@@ -79,4 +85,5 @@ extension ConfigureGeofenceView: UITextFieldDelegate {
 
         return true
     }
+
 }

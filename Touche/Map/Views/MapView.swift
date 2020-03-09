@@ -17,6 +17,7 @@ class MapView: UIViewController, MapViewProtocol {
     @IBOutlet weak var addGeofenceButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var regionLabel: UILabel!
+    @IBOutlet weak var ssidLabel: UILabel!
     
     var presenter: (MapPresenterProtocol & MapInteractorOutputProtocol)?
 
@@ -79,6 +80,16 @@ class MapView: UIViewController, MapViewProtocol {
     func update(region: String) {
         regionLabel.text = region
     }
+
+    func update(ssid: String) {
+        ssidLabel.text = ssid
+    }
+
+    func update(region: String, ssid: String) {
+        regionLabel.text = region
+        ssidLabel.text = ssid
+    }
+
 }
 
 // MARK: - MKMapViewDelegate

@@ -18,6 +18,8 @@ protocol MapViewProtocol: class {
     func add(annotation: Geofence)
     func remove(geofence: Geofence)
     func update(region: String)
+    func update(ssid: String)
+    func update(region: String, ssid: String)
 }
 
 protocol MapPresenterProtocol: class {
@@ -31,7 +33,8 @@ protocol MapPresenterProtocol: class {
 }
 
 protocol MapInteractorInputProtocol {
-    func retrieveGeofences()
+    func startup()
+    func shutdown()
     func requestForLocationService()
     func remove(geofence: Geofence)
     func startMonitoring(geofence: Geofence)
@@ -45,6 +48,8 @@ protocol MapInteractorOutputProtocol: class {
     func add(geofence: Geofence)
     func addGeofenceButton(isEnabled: Bool)
     func update(region: String)
+    func update(ssid: String)
+    func update(region: String, ssid: String)
 }
 
 protocol MapWireFrameProtocol {
