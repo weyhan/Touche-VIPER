@@ -16,14 +16,11 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
     weak var view: ConfigureGeofenceViewProtocol?
     var interactor: ConfigureGeofenceInteractorInputProtocol?
     var wireFrame: ConfigureGeofenceWireFrameProtocol?
-    var region: MKCoordinateRegion?
-    var delegate: ConfigureGeofenceDelegate?
 
     // MARK: - ConfigureGeofencePresenterProtocol
 
     func viewDidLoad() {
-        view?.region = region
-        view?.radius = String(format: "%.0f", 20.0)
+        interactor?.setupFields()
     }
 
     func cancelConfigureGeofence() {
@@ -66,12 +63,38 @@ class ConfigureGeofencePresenter: ConfigureGeofencePresenterProtocol, ConfigureG
     }
 
     func add(geofence: Geofence) {
-        guard let view = view as? ConfigureGeofenceView else { return }
+        guard let view = view as? UIViewController else { return }
         view.dismiss(animated: true)
 
-        delegate?.didAdd(geofence: geofence)
+        interactor?.didAdd(geofence: geofence)
+    }
+
+    func save(geofence: Geofence) {
+        guard let view = view as? UIViewController else { return }
+        view.dismiss(animated: true)
+
+        interactor?.didSave(geofence: geofence)
     }
 
     // MARK: - ConfigureGeofenceInteractorOutputProtocol
 
+    func set(ssid: String?) {
+        view?.set(ssid: ssid)
+    }
+
+    func set(location: String?) {
+        view?.set(location: location)
+    }
+
+    func set(radius: String?) {
+        view?.set(radius: radius)
+    }
+
+    func set(region: MKCoordinateRegion?) {
+        view?.region = region
+    }
+
+    func set(mode: AddEditMode) {
+        view?.set(mode: mode)
+    }
 }

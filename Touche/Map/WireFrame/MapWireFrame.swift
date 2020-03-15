@@ -51,4 +51,15 @@ public class MapWireFrame: MapWireFrameProtocol {
         }
     }
 
+    func presentEditGeofenceScreen(from view: MapViewProtocol, delegate: ConfigureGeofenceDelegate, region: MKCoordinateRegion, geofence: Geofence) {
+        guard let sourceView = view as? MapView else { return }
+
+        let navigationController = ConfigureGeofenceWireFrame.createGeofenceModule(with: delegate, region: region, geofence: geofence)
+
+        if let editGeofenceView = navigationController.children.first as? ConfigureGeofenceView {
+            editGeofenceView.modalPresentationStyle = .overCurrentContext
+
+            sourceView.present(navigationController, animated: true)
+        }
+    }
 }

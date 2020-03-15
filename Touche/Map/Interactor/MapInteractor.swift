@@ -157,6 +157,12 @@ extension MapInteractor: ConfigureGeofenceDelegate {
         startMonitoring(geofence: geofence)
     }
 
+    func didSave(newGeofence: Geofence, oldGeofence: Geofence) {
+        newGeofence.identifier = oldGeofence.identifier
+        presenter?.remove(annotation: oldGeofence)
+        remove(geofence: oldGeofence)
+        didAdd(geofence: newGeofence)
+    }
 }
 
 // MARK: - MapDelegate

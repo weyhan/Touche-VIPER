@@ -51,6 +51,10 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
         interactor?.remove(geofence: geofence)
     }
 
+    func edit(region: MKCoordinateRegion, geofence: Geofence) {
+        wireFrame?.presentEditGeofenceScreen(from: view!, delegate: interactor!, region: region, geofence: geofence)
+    }
+
     // MARK: - MapInteractorOutputProtocol
 
     func didRetrieve(geofences: [Geofence]) {
@@ -75,5 +79,9 @@ class MapPresenter: MapPresenterProtocol, MapInteractorOutputProtocol {
 
     func update(region: String, ssid: String) {
         view?.update(region: region, ssid: ssid)
+    }
+
+    func remove(annotation geofence: Geofence) {
+        view?.remove(geofence: geofence)
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cf4-o2-xM8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapView" customModule="Touche" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hR-aQ-LqT">
@@ -105,7 +106,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ConfigureGeofenceView" modalTransitionStyle="crossDissolve" id="42c-2L-UH6" customClass="ConfigureGeofenceView" customModule="Touche" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jI7-BK-h4O">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="wi0-X7-3AJ" userLabel="Footer">
                             <rect key="frame" x="0.0" y="458" width="414" height="44"/>
@@ -130,20 +131,20 @@
                             <tableViewSection id="hXx-Zx-nfG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="270" id="Jk3-kO-971">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="270"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk3-kO-971" id="w3x-X1-IA7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRu-GB-6Qr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                                                 </mapView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinDropShadow" translatesAutoresizingMaskIntoConstraints="NO" id="Il4-i8-5aA">
-                                                    <rect key="frame" x="225" y="60" width="150" height="150"/>
+                                                    <rect key="frame" x="169.5" y="97.5" width="75" height="75"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinDrop" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-0j-zTi">
-                                                    <rect key="frame" x="225" y="60" width="150" height="150"/>
+                                                    <rect key="frame" x="169.5" y="97.5" width="75" height="75"/>
                                                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
@@ -193,7 +194,7 @@
                                         <rect key="frame" x="0.0" y="342" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xO4-lt-4Yp" id="frO-TV-aoj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-xT-Bcp">
@@ -223,7 +224,7 @@
                                         <rect key="frame" x="0.0" y="386" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TKz-u6-aI0" id="YSI-mP-bIi">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnl-vL-3ou">
@@ -263,17 +264,25 @@
                                 <action selector="cancelConfigureGeofence:" destination="42c-2L-UH6" id="QN3-8q-mZI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="HtO-S8-UlB">
-                            <connections>
-                                <action selector="addGeofence:" destination="42c-2L-UH6" id="xUY-4y-Io7"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" id="HtO-S8-UlB">
+                                <connections>
+                                    <action selector="addGeofence:" destination="42c-2L-UH6" id="xUY-4y-Io7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Save" id="DVn-Lj-Eza">
+                                <connections>
+                                    <action selector="saveGeofence:" destination="42c-2L-UH6" id="poW-8R-5cs"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="HtO-S8-UlB" id="me2-mL-b8l"/>
                         <outlet property="locationTextField" destination="Uza-Ng-AUN" id="Zwa-tg-v7w"/>
                         <outlet property="mapView" destination="rRu-GB-6Qr" id="M3k-kx-8a9"/>
                         <outlet property="radiusTextField" destination="nAZ-JW-3y1" id="9xt-Le-Ml4"/>
+                        <outlet property="saveButton" destination="DVn-Lj-Eza" id="4kA-in-4ts"/>
                         <outlet property="ssidTextField" destination="ZqI-WP-vzL" id="2kb-La-peu"/>
                     </connections>
                 </tableViewController>

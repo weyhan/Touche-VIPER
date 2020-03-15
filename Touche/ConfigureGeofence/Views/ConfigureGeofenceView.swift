@@ -15,14 +15,15 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
     // MARK: - Properties
 
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var ssidTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var radiusTextField: RadiusTextField!
 
     var presenter: (ConfigureGeofencePresenterProtocol & ConfigureGeofenceInteractorOutputProtocol)?
-    var radius: String?
     var region: MKCoordinateRegion?
+    var viewMode: AddEditMode = .add
 
     // MARK: - UIViewController
 
@@ -33,7 +34,6 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         mapView.region = region!
 
         radiusTextField.delegate = self
-        radiusTextField.text = radius
 
         addButton.isEnabled = false
         locationTextField.addTarget(self, action: #selector(textFieldEditingChange(_:)), for: .editingChanged)
@@ -52,6 +52,17 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
         presenter?.add(geofence: geofence)
     }
 
+    @IBAction func saveGeofence(_ sender: Any) {
+        let coordinate = mapView.centerCoordinate
+        let radius = Double(radiusTextField.text!) ?? 0
+        let identifier = ""
+        let location = self.locationTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let ssid = ssidTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let geofence = Geofence(coordinate: coordinate, radius: radius, identifier: identifier, location: location, ssid: ssid)
+        presenter?.save(geofence: geofence)
+    }
+
     @IBAction func cancelConfigureGeofence(_ sender: UIBarButtonItem) {
         presenter?.cancelConfigureGeofence()
     }
@@ -65,9 +76,40 @@ class ConfigureGeofenceView: UITableViewController, ConfigureGeofenceViewProtoco
     // MARK: - ConfigureGeofenceViewProtocol
 
     func setAddButton(state: FieldState) {
-        addButton.isEnabled = (state == .enabled)
+        switch viewMode {
+        case .add:
+            addButton.isEnabled = (state == .enabled)
+
+        case .edit:
+            saveButton.isEnabled = (state == .enabled)
+        }
     }
 
+    func set(ssid: String?) {
+        ssidTextField.text = ssid
+    }
+
+    func set(location: String?) {
+        locationTextField.text = location
+    }
+
+    func set(radius: String?) {
+        radiusTextField.text = radius
+    }
+
+    func set(mode: AddEditMode) {
+        viewMode = mode
+
+        switch mode {
+        case .add:
+            saveButton.isEnabled = false
+            saveButton.title = nil
+
+        case .edit:
+            addButton.isEnabled = false
+            addButton.title = nil
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate

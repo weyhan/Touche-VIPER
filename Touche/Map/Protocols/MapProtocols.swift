@@ -30,6 +30,7 @@ protocol MapPresenterProtocol: class {
     func annotateMap(withGeofences geofences: [Geofence])
     func showAddGeofence(region: MKCoordinateRegion)
     func remove(geofence: Geofence)
+    func edit(region: MKCoordinateRegion, geofence: Geofence)
 }
 
 protocol MapInteractorInputProtocol {
@@ -50,8 +51,10 @@ protocol MapInteractorOutputProtocol: class {
     func update(region: String)
     func update(ssid: String)
     func update(region: String, ssid: String)
+    func remove(annotation: Geofence)
 }
 
 protocol MapWireFrameProtocol {
     func presentAddGeofenceScreen(from view: MapViewProtocol, delegate: ConfigureGeofenceDelegate, region: MKCoordinateRegion)
+    func presentEditGeofenceScreen(from view: MapViewProtocol, delegate: ConfigureGeofenceDelegate, region: MKCoordinateRegion, geofence: Geofence)
 }

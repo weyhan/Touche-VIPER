@@ -77,6 +77,10 @@ class MapView: UIViewController, MapViewProtocol {
         mapView.addOverlay(MKCircle(center: geofence.coordinate, radius: geofence.radius))
     }
 
+    func edit(annotation geofence: Geofence) {
+        presenter?.edit(region: mapView.region, geofence: geofence)
+    }
+
     func update(region: String) {
         regionLabel.text = region
     }
@@ -106,10 +110,16 @@ extension MapView: MKMapViewDelegate {
             } else {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.canShowCallout = true
-                let removeButton = UIButton(type: .custom)
+                let removeButton = MapPinCalloutButton(type: .custom)
+                removeButton.action = .remove
                 removeButton.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
                 removeButton.setImage(UIImage(named: "RemoveButton")!, for: .normal)
                 annotationView.leftCalloutAccessoryView = removeButton
+                let editButton = MapPinCalloutButton(type: .custom)
+                editButton.action = .edit
+                editButton.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
+                editButton.setImage(UIImage(named: "EditButton"), for: .normal)
+                annotationView.rightCalloutAccessoryView = editButton
             }
 
             annotationView.image = UIImage(named: "MapPin")
@@ -132,8 +142,15 @@ extension MapView: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-      // Delete geofence
       let geofence = view.annotation as! Geofence
-        remove(geofence: geofence)
+        if let mapButton = control as? MapPinCalloutButton, let action = mapButton.action {
+            switch action {
+            case .edit:
+                edit(annotation: geofence)
+
+            case .remove:
+                remove(geofence: geofence)
+            }
+        }
     }
 }
